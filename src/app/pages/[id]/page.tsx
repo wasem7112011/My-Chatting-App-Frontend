@@ -90,9 +90,9 @@ export default function UserPage() {
     async function fetchInitialData() {
       try {
         const [userRes, allUsersRes, chatsRes] = await Promise.all([
-          fetch(`http://localhost:5000/user/${userId}`),
-          fetch(`http://localhost:5000/users?userId=${userId}`),
-          fetch(`http://localhost:5000/chats/${userId}`)
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/${userId}`),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/users?userId=${userId}`),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/chats/${userId}`)
         ]);
 
         if (!userRes.ok || !allUsersRes.ok || !chatsRes.ok) {
@@ -359,7 +359,7 @@ export default function UserPage() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:5000/upload", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload`, {
         method: "POST",
         body: formData,
       });
@@ -418,7 +418,7 @@ export default function UserPage() {
         formData.append("file", audioFile);
 
         try {
-          const res = await fetch("http://localhost:5000/upload", {
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload`, {
             method: "POST",
             body: formData,
           });
@@ -501,7 +501,7 @@ export default function UserPage() {
               <button key={c._id} onClick={async () => {
                 setSelectedUser({ ...c, typing: false });
                 setChats(prev => prev.map(chat => chat._id === c._id ? { ...chat, unreadCount: 0 } : chat));
-                const res = await fetch(`http://localhost:5000/messages?senderId=${userId}&receiverId=${c._id}`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/messages?senderId=${userId}&receiverId=${c._id}`);
                 const data = await res.json();
                 setMessages(data.messages);
                 socket.emit("markAsSeen", { senderId: c._id, receiverId: userId });
@@ -527,7 +527,7 @@ export default function UserPage() {
                 <button key={u._id} onClick={async () => {
                   setSelectedUser({ ...u, typing: false });
                   setChats(prev => prev.map(chat => chat._id === u._id ? { ...chat, unreadCount: 0 } : chat));
-                  const res = await fetch(`http://localhost:5000/messages?senderId=${userId}&receiverId=${u._id}`);
+                  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/messages?senderId=${userId}&receiverId=${u._id}`);
                   const data = await res.json();
                   setMessages(data.messages);
                   socket.emit("markAsSeen", { senderId: u._id, receiverId: userId });

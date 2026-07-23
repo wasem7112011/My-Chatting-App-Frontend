@@ -20,7 +20,7 @@ export default function AuthPage() {
     setLoading(true);
 
     try{
-      const response = await fetch("http://localhost:5000/register", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export default function AuthPage() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/login", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ export default function AuthPage() {
   
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4" dir="rtl">
-      <div className="relative w-full max-w-[450px] md:max-w-[900px] h-[650px] md:h-[550px] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:block transition-all duration-500">
+      <div className="relative w-full max-w-112.5 md:max-w-225 h-162.5 md:h-137.5 bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:block transition-all duration-500">
         
         <div
           className={`absolute top-0 w-full md:w-1/2 h-[60%] md:h-full flex items-center justify-center transition-all duration-700 ease-in-out z-10 ${
@@ -97,7 +97,7 @@ export default function AuthPage() {
           }`}
         >
           <div
-            className={`absolute w-[90%] sm:w-[350px] transition-all duration-500 ease-in-out ${
+            className={`absolute w-[90%] sm:w-87.5 transition-all duration-500 ease-in-out ${
               !isLogin
                 ? "opacity-100 pointer-events-auto scale-100"
                 : "opacity-0 pointer-events-none scale-95"
@@ -107,7 +107,7 @@ export default function AuthPage() {
           </div>
 
           <div
-            className={`absolute w-[90%] sm:w-[350px] transition-all duration-500 ease-in-out ${
+            className={`absolute w-[90%] sm:w-87.5 transition-all duration-500 ease-in-out ${
               isLogin
                 ? "opacity-100 pointer-events-auto scale-100"
                 : "opacity-0 pointer-events-none scale-95"
