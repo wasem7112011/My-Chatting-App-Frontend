@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Chatting App — Frontend
 
-## Getting Started
+A modern real-time chatting application built with Next.js, React, TypeScript, Tailwind CSS, and Socket.IO.
 
-First, run the development server:
+The application provides real-time messaging between users with online/offline presence, typing indicators, message status, notifications, and other features found in modern messaging platforms.
+
+## 🚀 Features
+
+* 🔐 User registration and login
+* 💬 Real-time one-to-one messaging
+* ⚡ Real-time communication using Socket.IO
+* 🟢 Online / offline user status
+* ⌨️ Typing indicators
+* ✓ Message seen status
+* 🔔 Real-time notifications
+* ✏️ Message editing
+* 📁 File and voice message support
+* 🔎 Search for users and conversations
+* 💭 Recent and new chat sections
+* 📱 Responsive interface for desktop and mobile
+* 🔔 Toast notifications and confirmation dialogs
+
+## 🛠️ Tech Stack
+
+* **Next.js** — React framework using the App Router
+* **React** — UI development
+* **TypeScript** — Type-safe development
+* **Tailwind CSS** — Responsive styling
+* **Socket.IO Client** — Real-time communication
+* **Lucide React** — Interface icons
+
+## 🏗️ Project Structure
+
+```text
+src/
+├── app/
+│   ├── ...
+│   └── [id]/
+│       └── ...
+├── components/
+│   ├── ...
+│   └── ...
+└── utils/
+    ├── ...
+    └── ...
+```
+
+The application uses Next.js App Router with reusable components and utility modules for API and Socket.IO communication.
+
+## 🔌 Backend
+
+The frontend communicates with a separate Node.js / Express backend.
+
+**Backend Repository:**
+[My-Chatting-App-Backend](https://github.com/wasem7112011/My-Chatting-App-Backend)
+
+The backend is responsible for authentication, database operations, messaging APIs, and real-time Socket.IO events.
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+* Node.js 18+
+* npm
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/wasem7112011/My-Chatting-App-Frontend.git
+```
+
+Navigate to the project:
+
+```bash
+cd My-Chatting-App-Frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the project root:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_SOCKET_URL=http://localhost:5000
+```
+
+Update the URLs if your backend is running on another address.
+
+### Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔄 Real-Time Communication
 
-## Learn More
+Socket.IO is used to maintain a persistent real-time connection between the client and server.
 
-To learn more about Next.js, take a look at the following resources:
+It is used for features such as:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Sending and receiving messages instantly
+* Online / offline presence
+* Typing indicators
+* Message seen updates
+* Real-time notifications
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📱 Responsive Design
 
-## Deploy on Vercel
+The interface is designed to work across different screen sizes, including desktop and mobile devices.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Related Repository
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Backend:**
+[My-Chatting-App-Backend](https://github.com/wasem7112011/My-Chatting-App-Backend)
