@@ -126,3 +126,7 @@ The interface is designed to work across different screen sizes, including deskt
 
 **Backend:**
 [My-Chatting-App-Backend](https://github.com/wasem7112011/My-Chatting-App-Backend)
+
+## 🌐 Live Demo
+
+[Try the live application](https://my-chatting-app-frontend.vercel.app/)
